@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base text style */
+.glow-text {
+  color: #ffffff; /* Base color */
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.glow-text:hover {
+  color: #ffc8ba; /* Optional: brighten text color */
+  text-shadow: 
+    0 0 5px #c9aed4,
+    0 0 10px #c9aed4,
+    0 0 20px #c9aed4,
+    0 0 40px #c9aed4;
+}
+
+/* styles.css or Tailwind + custom class */
+.icon-glow {
+  transition: all 0.3s ease;
+  color: #ffffff; /* Base icon color */
+}
+
+.icon-glow:hover {
+  color: #ffc8ba; /* Brighten icon */
+  filter: drop-shadow(0 0 4px #c9aed4)
+          drop-shadow(0 0 8px #c9aed4);
+}
+
