@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react'; 
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Linkedin, Github } from 'lucide-react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -10,7 +20,8 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-slate-800 text-slate-200" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-      {/* Navigation */}
+      <ScrollToTop />
+     {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-800/95 backdrop-blur-sm z-50 border-b border-slate-700">
         <div className="max-w-5xl mx-auto px-8 py-6 flex justify-between items-center">
           <Link to="/" className="text-xl font-semibold tracking-wide glow-text" style={{ color: '#ffd6d6ff' }}>

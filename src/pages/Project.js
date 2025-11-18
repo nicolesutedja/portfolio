@@ -5,21 +5,22 @@ import { Github, ExternalLink } from 'lucide-react';
 export default function Project() {
   const projects = [
     {
-      title: "Low-Price Center Marketplace",
-      description: "A student-centered marketplace platform for UCSD fostering affordability, sustainability, and campus community engagement. Built with React and SQL-backed Neon database.",
-      tags: ["React", "TypeScript", "SQL", "Neon"],
-      github: "https://github.com/CSES-Open-Source/LowPriceCenter",
-      demo: "#",
-      image: "#b8c5d6", // Placeholder color - replace with actual image
-    },
-    {
       title: "SDIA Website",
       description: "Comprehensive website for San Diego Indonesian Association managing event organization and alumni data for 140+ members with seamless user experience.",
       tags: ["React", "TypeScript", "CSS", "SQL"],
       github: "https://github.com/PERMIAS-SDIA/sdia-website-v2",
-      demo: "#",
-      image: "#c9aed4",
+      demo: "https://www.permiassdia.com/",
+      image: "url('/sdia.png')",
     },
+    {
+      title: "Low-Price Center Marketplace",
+      description: "A student-centered marketplace platform for UCSD fostering affordability, sustainability, and campus community engagement. Built with React and SQL-backed Neon database.",
+      tags: ["React", "TypeScript", "SQL", "Neon", "JavaScript"],
+      github: "https://github.com/CSES-Open-Source/LowPriceCenter",
+      demo: "https://low-price-center-kohl.vercel.app",
+      image: "url('/lpc.png')",
+    },
+
   ];
 
   const cardVariants = {
@@ -60,7 +61,7 @@ export default function Project() {
             Projects.
           </h1>
           <p className="text-xl font-medium text-slate-300 mb-20">
-            A collection of projects showcasing my work in web development, AI integration, and community-focused technology solutions!
+            A collection of projects showcasing my work in web development and community-focused technology solutions!
           </p>
         </motion.div>
 
@@ -78,8 +79,13 @@ export default function Project() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Project Image/Color Block */}
                 <div 
-                  className="h-64 md:h-80 rounded-2xl transition-transform duration-300"
-                  style={{ backgroundColor: project.image }}
+                  className="h-64 md:h-80 rounded-2xl overflow-hidden transition-transform duration-300"
+                  style={{ 
+                    background: project.image,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
                 >
                   {/* Replace with actual project image */}
                   <div className="w-full h-full flex items-center justify-center text-slate-700 text-6xl font-bold opacity-20">
@@ -116,7 +122,7 @@ export default function Project() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700/40 border border-slate-600 text-slate-300 font-medium hover:bg-slate-700 transition-colors"
+                      className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700/40 border border-slate-600 text-slate-300 font-medium hover:bg-slate-700 transition-colors" 
                     >
                       <Github size={20} />
                       View Code
@@ -126,8 +132,7 @@ export default function Project() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg border-2 text-slate-300 font-medium hover:bg-slate-700/20 transition-colors icon-glow"
-                        style={{ borderColor: '#c9aed4' }}
+                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700/40 border border-slate-600 text-slate-300 font-medium hover:bg-slate-700 transition-colors"
                       >
                         <ExternalLink size={20} />
                         Live Demo
