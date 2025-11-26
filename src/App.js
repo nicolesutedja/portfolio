@@ -8,7 +8,7 @@ import Project from './pages/Project';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/portfolio">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
