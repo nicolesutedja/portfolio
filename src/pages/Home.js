@@ -100,7 +100,7 @@ export default function Home() {
           </motion.div>
 
             <motion.img 
-            src="/picture.png" 
+            src={process.env.PUBLIC_URL + '/picture.png'} 
             alt="Nicole Sutedja Profile"
             initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}

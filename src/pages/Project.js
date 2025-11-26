@@ -10,7 +10,7 @@ export default function Project() {
       tags: ["React", "TypeScript", "CSS", "SQL"],
       github: "https://github.com/PERMIAS-SDIA/sdia-website-v2",
       demo: "https://www.permiassdia.com/",
-      image: "url('/sdia.png')",
+      image: `url('${process.env.PUBLIC_URL}/sdia.png')`,  
     },
     {
       title: "Low-Price Center Marketplace",
@@ -18,7 +18,7 @@ export default function Project() {
       tags: ["React", "TypeScript", "SQL", "Neon", "JavaScript"],
       github: "https://github.com/CSES-Open-Source/LowPriceCenter",
       demo: "https://low-price-center-kohl.vercel.app",
-      image: "url('/lpc.png')",
+      image: `url('${process.env.PUBLIC_URL}/lpc.png')`,  
     },
 
   ];
