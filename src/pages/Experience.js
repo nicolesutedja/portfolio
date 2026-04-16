@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import DecorativeDots from '../components/DecorativeDots';
+import FadeIn from '../components/FadeIn';
 
 // --- DATA ---
 const workExperiences = [
@@ -56,38 +58,8 @@ const leadershipRoles = [
   }
 ];
 
-// --- REUSABLE COMPONENTS ---
 
-// 1. Reusable Animation Wrapper
-const FadeIn = ({ children, x = -20, duration = 0.8, margin = "0px" }) => (
-  <motion.div
-    initial={{ opacity: 0, x }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration }}
-    viewport={{ 
-          once: true, 
-          amount: 0,      // Triggers the millisecond 1 pixel is visible
-          margin: "0px"   // No artificial delay/buffer zone
-        }}
-  >
-    {children}
-  </motion.div>
-);
-
-// 2. Reusable Decorative Dots
-const DecorativeDots = () => (
-  <div className="mb-8 flex gap-3">
-    {[...Array(5)].map((_, i) => (
-      <div key={i} className="flex flex-col gap-3">
-        {[...Array(5)].map((_, j) => (
-          <div key={j} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#d4a5a5' }} />
-        ))}
-      </div>
-    ))}
-  </div>
-);
-
-// 3. Reusable Experience Card
+// Reusable Experience Card
 const ExperienceCard = ({ title, company, date, description }) => (
   <div>
     <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
@@ -110,8 +82,8 @@ export default function Experience() {
           
           <DecorativeDots />
           
-          <FadeIn x={-40}>
-            <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>Experience.</h2>
+          <FadeIn x={-40} duration={0.6}>
+            <h2 className="text-5xl md:text-6xl font-bold mb-10" style={{ color: '#b8c5d6' }}>Experience.</h2>
           </FadeIn>
 
           <div className="space-y-16">
@@ -119,7 +91,7 @@ export default function Experience() {
             {/* Work Experience Section */}
             <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
               {workExperiences.map((exp, index) => (
-                <FadeIn key={index} margin="-20% 0px">
+                <FadeIn key={index} x={-30} duration={0.6} delay={index * 0.1}>
                   <ExperienceCard {...exp} />
                 </FadeIn>
               ))}
@@ -127,13 +99,13 @@ export default function Experience() {
 
             {/* Leadership Section */}
             <div className="mt-20">
-              <FadeIn x={-40} duration={0.7} margin="-20% 0px">
+              <FadeIn x={-40} duration={0.7}>
                 <h3 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#b8c5d6' }}>Leadership Roles.</h3>
               </FadeIn>
               
               <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
                 {leadershipRoles.map((role, index) => (
-                  <FadeIn key={index} x={-40} duration={0.7} margin="-20% 0px">
+                  <FadeIn key={index} x={-30} duration={0.6} delay={index * 0.1}>
                     <ExperienceCard {...role} />
                   </FadeIn>
                 ))}
@@ -150,20 +122,24 @@ export default function Experience() {
           
           <DecorativeDots />
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>What People Say.</h2>
+          <FadeIn x={-40} duration={0.6}>
+            <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>What People Say.</h2>
+          </FadeIn>
           
           <div className="space-y-12">
-            <div className="border-l-4 pl-8" style={{ borderColor: '#c9aed4' }}>
-              <p className="text-xl font-medium text-slate-300 italic mb-4 leading-relaxed">
-                "Nicole interned at Sciencia Consulting, where she quickly stood out for her precision, innovative thinking, 
-                and ability to self-direct in a fast-moving environment. She explored the frontier of gen AI in life science 
-                marketing, evaluating tools, crafting life science domain-specific prompts, and contributing thoughtful analysis 
-                to improve our content workflows. Nicole brought clarity to complex tasks, communicated with professionalism, and 
-                consistently delivered high-quality work. She's a sharp, curious mind who would be a valuable asset to any 
-                forward-thinking team."
-              </p>
-              <p className="text-slate-400 font-medium">— Dr. Jill Roughan, Sciencia Consulting</p>
-            </div>
+            <FadeIn x={-40} duration={0.7}>
+              <div className="border-l-4 pl-8" style={{ borderColor: '#c9aed4' }}>
+                <p className="text-xl font-medium text-slate-300 italic mb-4 leading-relaxed">
+                  "Nicole interned at Sciencia Consulting, where she quickly stood out for her precision, innovative thinking, 
+                  and ability to self-direct in a fast-moving environment. She explored the frontier of gen AI in life science 
+                  marketing, evaluating tools, crafting life science domain-specific prompts, and contributing thoughtful analysis 
+                  to improve our content workflows. Nicole brought clarity to complex tasks, communicated with professionalism, and 
+                  consistently delivered high-quality work. She's a sharp, curious mind who would be a valuable asset to any 
+                  forward-thinking team."
+                </p>
+                <p className="text-slate-400 font-medium">— Dr. Jill Roughan, Sciencia Consulting</p>
+              </div>
+            </FadeIn>
           </div>
 
         </div>

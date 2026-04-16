@@ -27,8 +27,8 @@ body {
   text-shadow: 
     0 0 5px #c9aed4,
     0 0 10px #c9aed4,
-    0 0 20px #c9aed4,
-    0 0 40px #c9aed4;
+    0 0 15px #c9aed4,
+    0 0 20px #c9aed4;
 }
 
 /* styles.css or Tailwind + custom class */

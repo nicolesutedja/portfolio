@@ -113,8 +113,8 @@ export default function DecorativeDots() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.5 }}
-      // Ensure the grid doesn't clip the dots when they get pushed outwards
-      style={{ padding: "40px", margin: "-30px" }} 
+      // Fix: Only apply negative margin to top/left/right so it doesn't eat the bottom gap
+      style={{ padding: "20px", margin: "-20px -20px 0px -20px" }} 
     >
       {[...Array(5)].map((_, i) => (
         <div key={i} className="flex flex-col gap-3">
