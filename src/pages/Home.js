@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
+import DecorativeDots from '../components/DecorativeDots';
+import FadeIn from '../components/FadeIn';
+
+const techStack = [
+  {
+    title: "Languages",
+    content: "Python, Java, JavaScript, TypeScript, HTML, CSS, C, C++"
+  },
+  {
+    title: "Frameworks & Tools",
+    content: "React, SQL, Git, Figma, Notion, Microsoft Office, Canva"
+  },
+  {
+    title: "Skills",
+    content: "Web Development, AI Integration, UI/UX Design"
+  },
+  {
+    title: "Other",
+    content: "Product Management, Market Research, Academic Research, Event Planning, Workshop Facilitation, Public Speaking, Team Leadership"
+  }
+];
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -30,20 +49,8 @@ export default function Home() {
               transform: `translateY(${scrollY * 0.3}px)`
             }}
           >
-            {/* Decorative dots */}
-            <div className="mb-8 flex gap-3">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="flex flex-col gap-3">
-                  {[...Array(5)].map((_, j) => (
-                    <div 
-                      key={j} 
-                      className="w-2 h-2 rounded-full" 
-                      style={{ backgroundColor: '#d4a5a5' }}
-                    />
-                  ))}
-                </div>
-              ))}
-            </div>
+            {/* Replaced static arrays with your new component */}
+            <DecorativeDots />
 
             {/* Hero Content with Profile Picture inline */}
             <div className="flex items-center gap-6 mb-8">
@@ -57,17 +64,11 @@ export default function Home() {
               </h1>
             </div>
 
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 2, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
+            <FadeIn y={40} duration={2}>
               <p className="text-2xl md:text-3xl font-medium text-slate-300 max-w-3xl leading-relaxed">
                 A Computer Science Student passionate about building technology that connects people and creates meaningful impact.
               </p>
-            </motion.div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -75,31 +76,16 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-32 px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-8 flex gap-3">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="flex flex-col gap-3">
-                {[...Array(5)].map((_, j) => (
-                  <div 
-                    key={j} 
-                    className="w-2 h-2 rounded-full" 
-                    style={{ backgroundColor: '#d4a5a5' }}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-20% 0px" }}
-          >
+          
+          <DecorativeDots />
+          
+          <FadeIn x={-40} duration={0.6}>
             <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>
               About me.
             </h2>
-          </motion.div>
+          </FadeIn>
 
-            <motion.img 
+          <motion.img 
             src={process.env.PUBLIC_URL + '/picture.png'} 
             alt="Nicole Sutedja Profile"
             initial={{ x: 300, opacity: 0 }}
@@ -108,70 +94,37 @@ export default function Home() {
             viewport={{ once: true }}
             className="float-right ml-8 mb-6 w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4"
             style={{ borderColor: '#a5c9d4ff' }}
-            />
+          />
 
           <div className="space-y-16">
             <div>
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
-              >
+              <FadeIn x={-40} duration={0.7}>
                 <p className="text-xl font-medium text-slate-300 leading-relaxed mb-6">
                   My name is Nicole Sutedja, and I am a second-year Computer Science student at UC San Diego with a 3.9 GPA. I'm passionate about AI research, web development, and creating accessible technology education.
                 </p>
-              </motion.div>
+              </FadeIn>
 
-
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
-              >
+              <FadeIn x={-40} duration={0.8}>
                 <p className="text-xl font-medium text-slate-300 leading-relaxed">
                   I believe technology should empower communities and bridge gaps. Whether I'm integrating AI platforms, building student marketplaces, or leading workshops for underrepresented students, I'm driven by the goal of making tech more inclusive and impactful.
                 </p>
-              </motion.div>
+              </FadeIn>
             </div>
 
             <div>
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
+              <FadeIn x={-40} duration={0.8}>
                 <h3 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: '#b8c5d6' }}>
                   Tech Stack.
                 </h3>
-              </motion.div>
+              </FadeIn>
               <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  {
-                    title: "Languages",
-                    content: "Python, Java, JavaScript, TypeScript, HTML, CSS, C, C++"
-                  },
-                  {
-                    title: "Frameworks & Tools",
-                    content: "React, SQL, Git, Figma, Notion, Microsoft Office, Canva"
-                  },
-                  {
-                    title: "Skills",
-                    content: "Web Development, AI Integration, UI/UX Design"
-                  },
-                  {
-                    title: "Other",
-                    content: "Product Management, Market Research, Academic Research, Event Planning, Workshop Facilitation, Public Speaking, Team Leadership"
-                  }
-                ].map((box, index) => (
+                {techStack.map((box, index) => (
                   <motion.div
                     key={index}
                     variants={bounce}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-10%" }}
+                    viewport={{ once: true, amount: 0 }}
                     className="p-4 rounded-xl bg-slate-700/40 border border-slate-600"
                   >
                     <h4 className="text-lg font-bold mb-3" style={{ color: '#c9aed4' }}>

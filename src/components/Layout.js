@@ -46,6 +46,12 @@ export default function Layout({ children }) {
             >
               Contact
             </Link>
+            <Link 
+              to="https://drive.google.com/file/d/1OziEMDd7xvoDVOUGmCJ4nJzKcFqn8KjN/view?usp=sharing" 
+              className={`text-sm font-medium glow-text ${isActive('https://drive.google.com/file/d/1OziEMDd7xvoDVOUGmCJ4nJzKcFqn8KjN/view?usp=sharing') ? 'text-pink-300' : ''}`}
+            >
+              Resume
+            </Link>
             <div className="flex gap-4 ml-4">
               <a href="mailto:nicolesutedja@gmail.com" className="icon-glow">
                 <Mail size={18} />
