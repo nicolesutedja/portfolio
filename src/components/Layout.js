@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'; 
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import CustomCursor from './CustomCursor';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -19,8 +20,8 @@ export default function Layout({ children }) {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="min-h-screen bg-slate-800 text-slate-200" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-      <ScrollToTop />
+    <div className="min-h-screen bg-slate-800 text-slate-200 cursor-none" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>      <ScrollToTop />
+     <CustomCursor />
      {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-800/95 backdrop-blur-sm z-50 border-b border-slate-700">
         <div className="max-w-5xl mx-auto px-8 py-6 flex justify-between items-center">
@@ -46,12 +47,14 @@ export default function Layout({ children }) {
             >
               Contact
             </Link>
-            <Link 
-              to="https://drive.google.com/file/d/1OziEMDd7xvoDVOUGmCJ4nJzKcFqn8KjN/view?usp=sharing" 
-              className={`text-sm font-medium glow-text ${isActive('https://drive.google.com/file/d/1OziEMDd7xvoDVOUGmCJ4nJzKcFqn8KjN/view?usp=sharing') ? 'text-pink-300' : ''}`}
+            <a 
+              href="https://drive.google.com/file/d/1OziEMDd7xvoDVOUGmCJ4nJzKcFqn8KjN/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm font-medium glow-text"
             >
               Resume
-            </Link>
+            </a>
             <div className="flex gap-4 ml-4">
               <a href="mailto:nicolesutedja@gmail.com" className="icon-glow">
                 <Mail size={18} />

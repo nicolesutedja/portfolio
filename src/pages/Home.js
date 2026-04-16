@@ -49,7 +49,6 @@ export default function Home() {
               transform: `translateY(${scrollY * 0.3}px)`
             }}
           >
-            {/* Replaced static arrays with your new component */}
             <DecorativeDots />
 
             {/* Hero Content with Profile Picture inline */}

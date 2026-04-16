@@ -80,7 +80,7 @@ const InteractiveDot = ({ mouseX, mouseY, defaultX, defaultY, index }) => {
       ref={dotRef}
       className="w-2 h-2 rounded-full cursor-pointer"
       style={{
-        backgroundColor: '#d4a5a5',
+        backgroundColor: '#e4a5a5',
         // Instead of standard x/y, we bind the spring physics values
         x: springX,
         y: springY,
