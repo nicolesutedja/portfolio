@@ -1,190 +1,157 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// --- DATA ---
+const workExperiences = [
+  {
+    title: "Project Lead",
+    company: "Triton Web Developers, UCSD",
+    date: "Sep 2025 – Present",
+    description: "Manage branding and social media outreach while serving as lead developer for client projects. Connect with campus organizations to scope project visions, including UI/UX direction, framework utilization, and quality inspection for custom web solutions."
+  },
+  {
+    title: "Product Manager",
+    company: "CSE Society, UCSD",
+    date: "Jun 2025 – Present",
+    description: "Own product strategy and execution for Low-Price Center, a student marketplace addressing affordability and sustainability gaps. Translate user research into prioritized requirements, defining MVP scope, trade-offs, and success criteria before campus-wide deployment."
+  },
+  {
+    title: "Web Developer",
+    company: "San Diego Indonesian Association, UCSD",
+    date: "Jun 2025 – Present",
+    description: "Built and deployed a full-stack web application using React, TypeScript, CSS, and SQL. Integrated a Neon SQL backend to improve data reliability for event management and alumni tracking while collaborating with non-technical stakeholders to define features."
+  },
+  {
+    title: "Undergraduate Researcher",
+    company: "Early Research Scholars Program, UCSD",
+    date: "Sep 2025 – Jun 2026",
+    description: "Conducting year-long research under Prof. Mia Minnes developing a specifications-based grading framework. Analyzing student learning outcomes and presenting findings through a research poster at the UCSD ERSP Symposium."
+  },
+  {
+    title: "AI Research Intern",
+    company: "Sciencia Consulting",
+    date: "Jan 2025 – Jun 2025",
+    description: "Analyzed and integrated APIs from five AI platforms, streamlining automation for marketing and scientific teams with a 20% reduction in manual effort. Contributed to AI workshops at UCSD for PhD students, teaching practical use of generative tools."
+  }
+];
+
+const leadershipRoles = [
+  {
+    title: "President",
+    company: "CS foreach, UCSD",
+    date: "Jan 2026 – Present",
+    description: "Lead an outreach-focused CS organization increasing resource accessibility for K-12 students. Coordinate cross-functional teams to plan workshops and hackathons, partnering with 120+ students and faculty to identify and fill gaps in local CS education."
+  },
+  {
+    title: "Head of Events",
+    company: "San Diego Indonesian Association, UCSD",
+    date: "Jun 2025 – Present",
+    description: "Oversee all event production including proposals, budgeting, and logistics for 140+ Indonesian students. Coordinate cross-university collaborations with UC Irvine and UCLA to strengthen cultural ties."
+  },
+  {
+    title: "Curriculum Director & Workshop Lead",
+    company: "CS foreach, UCSD",
+    date: "Jan 2025 – Dec 2026",
+    description: "Developed comprehensive K-12 curriculum covering Python, Java, and Machine Learning. Acted as the primary liaison for San Diego schools, delivering 2+ introductory workshops per quarter to increase local STEM accessibility."
+  }
+];
+
+// --- REUSABLE COMPONENTS ---
+
+// 1. Reusable Animation Wrapper
+const FadeIn = ({ children, x = -20, duration = 0.8, margin = "0px" }) => (
+  <motion.div
+    initial={{ opacity: 0, x }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration }}
+    viewport={{ 
+          once: true, 
+          amount: 0,      // Triggers the millisecond 1 pixel is visible
+          margin: "0px"   // No artificial delay/buffer zone
+        }}
+  >
+    {children}
+  </motion.div>
+);
+
+// 2. Reusable Decorative Dots
+const DecorativeDots = () => (
+  <div className="mb-8 flex gap-3">
+    {[...Array(5)].map((_, i) => (
+      <div key={i} className="flex flex-col gap-3">
+        {[...Array(5)].map((_, j) => (
+          <div key={j} className="w-2 h-2 rounded-full" style={{ backgroundColor: '#d4a5a5' }} />
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
+// 3. Reusable Experience Card
+const ExperienceCard = ({ title, company, date, description }) => (
+  <div>
+    <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
+      <div>
+        <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>{title}</h3>
+        <p className="text-slate-300 font-medium">{company}</p>
+      </div>
+      <p className="text-slate-400 text-sm font-medium">{date}</p>
+    </div>
+    <p className="text-slate-300 font-medium leading-relaxed">{description}</p>
+  </div>
+);
+
+// --- MAIN PAGE COMPONENT ---
 export default function Experience() {
   return (
     <>
-      {/* Experience Section */}
       <section className="py-32 px-8 bg-slate-900 min-h-screen">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-8 flex gap-3">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="flex flex-col gap-3">
-                {[...Array(5)].map((_, j) => (
-                  <div 
-                    key={j} 
-                    className="w-2 h-2 rounded-full" 
-                    style={{ backgroundColor: '#d4a5a5' }}
-                  />
+          
+          <DecorativeDots />
+          
+          <FadeIn x={-40}>
+            <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>Experience.</h2>
+          </FadeIn>
+
+          <div className="space-y-16">
+            
+            {/* Work Experience Section */}
+            <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
+              {workExperiences.map((exp, index) => (
+                <FadeIn key={index} margin="-20% 0px">
+                  <ExperienceCard {...exp} />
+                </FadeIn>
+              ))}
+            </div>
+
+            {/* Leadership Section */}
+            <div className="mt-20">
+              <FadeIn x={-40} duration={0.7} margin="-20% 0px">
+                <h3 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#b8c5d6' }}>Leadership Roles.</h3>
+              </FadeIn>
+              
+              <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
+                {leadershipRoles.map((role, index) => (
+                  <FadeIn key={index} x={-40} duration={0.7} margin="-20% 0px">
+                    <ExperienceCard {...role} />
+                  </FadeIn>
                 ))}
               </div>
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>Experience.</h2>
-          </motion.div>
-          <div className="space-y-16">
-            {/* Work Experience */}
-            <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>AI Tool Research Intern</h3>
-                      <p className="text-slate-300 font-medium">Sciencia Consulting</p>
-                    </div>
-                    <p className="text-slate-400 text-sm font-medium">Jan 2025 – Jun 2025</p>
-                  </div>
-                  <p className="text-slate-300 font-medium leading-relaxed">
-                    Analyzed and integrated APIs from five AI platforms, reducing manual effort by 20%. Contributed to AI workshops for PhD students and published research on optimizing content creation workflows using ChatGPT, Gemini, Claude, Grok, and Perplexity.
-                  </p>
-                </motion.div>
-              </div>
-
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>Product Manager</h3>
-                      <p className="text-slate-300 font-medium">CSE Society, UCSD</p>
-                    </div>
-                    <p className="text-slate-400 text-sm font-medium">Jun 2025 – Present</p>
-                  </div>
-                  <p className="text-slate-300 font-medium leading-relaxed">
-                    Leading development of Low-Price Center, a student-centered marketplace for UCSD. Conducted user research through surveys to define features that foster affordability, sustainability, and campus community engagement.
-                  </p>
-                </motion.div>
-              </div>
-
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>Undergraduate Researcher</h3>
-                      <p className="text-slate-300 font-medium">Early Research Scholars Program, UCSD</p>
-                    </div>
-                    <p className="text-slate-400 text-sm font-medium">Sep 2025 – Jun 2026</p>
-                  </div>
-                  <p className="text-slate-300 font-medium leading-relaxed">
-                    Conducting year-long research under Prof. Mia Minnes developing a specifications-based grading framework. Creating research poster to present findings on student learning outcomes at UCSD ERSP Symposium.
-                  </p>
-                </motion.div>
-              </div>
-
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>Web Developer</h3>
-                      <p className="text-slate-300 font-medium">San Diego Indonesian Association, UCSD</p>
-                    </div>
-                    <p className="text-slate-400 text-sm font-medium">Jun 2025 – Present</p>
-                  </div>
-                  <p className="text-slate-300 font-medium leading-relaxed">
-                    Developed SDIA website using TypeScript and CSS with React frontend and SQL-backed Neon backend to streamline event organization and alumni data management for 140+ members.
-                  </p>
-                </motion.div>
-              </div>
             </div>
 
-            {/* Leadership */}
-            <div className="mt-20">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
-              >
-                <h3 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#b8c5d6' }}>Leadership Roles.</h3>
-              </motion.div>
-              <div className="border-l-2 pl-8 space-y-12" style={{ borderColor: '#c9aed4' }}>
-                <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.7 }}
-                  viewport={{ once: true, margin: "-20% 0px" }}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                      <div>
-                        <h4 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>Head of Events</h4>
-                        <p className="text-slate-300 font-medium">San Diego Indonesian Association, UCSD</p>
-                      </div>
-                      <p className="text-slate-400 text-sm font-medium">Jun 2025 – Present</p>
-                    </div>
-                    <p className="text-slate-300 font-medium leading-relaxed">
-                      Oversee all event production including proposals, budgeting, and logistics for 140+ Indonesian students. Coordinate cross-university collaborations with UC Irvine and UCLA to strengthen cultural ties.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.7 }}
-                  viewport={{ once: true, margin: "-20% 0px" }}
-                >
-                  <div>
-                    <div className="flex justify-between items-start mb-4 flex-wrap gap-2">
-                      <div>
-                        <h4 className="text-2xl font-bold mb-2" style={{ color: '#b8c5d6' }}>CSE Curriculum Director</h4>
-                        <p className="text-slate-300 font-medium">CS foreach, UCSD</p>
-                      </div>
-                      <p className="text-slate-400 text-sm font-medium">Jun 2025 – Present</p>
-                    </div>
-                    <p className="text-slate-300 font-medium leading-relaxed">
-                      Lead 2 weekly meetings coordinating workshops for 30+ high school students. Led 6+ engaging CSE workshops for K–12 students focusing on increasing STEM access in underrepresented communities, including Intro to Web Development, AI Chatbots, and Python.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <section className="py-32 px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="mb-8 flex gap-3">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="flex flex-col gap-3">
-                {[...Array(5)].map((_, j) => (
-                  <div 
-                    key={j} 
-                    className="w-2 h-2 rounded-full" 
-                    style={{ backgroundColor: '#d4a5a5' }}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
+          
+          <DecorativeDots />
+          
           <h2 className="text-5xl md:text-6xl font-bold mb-20" style={{ color: '#b8c5d6' }}>What People Say.</h2>
+          
           <div className="space-y-12">
             <div className="border-l-4 pl-8" style={{ borderColor: '#c9aed4' }}>
               <p className="text-xl font-medium text-slate-300 italic mb-4 leading-relaxed">
@@ -198,6 +165,7 @@ export default function Experience() {
               <p className="text-slate-400 font-medium">— Dr. Jill Roughan, Sciencia Consulting</p>
             </div>
           </div>
+
         </div>
       </section>
     </>
