@@ -5,22 +5,45 @@ import { Github, ExternalLink } from 'lucide-react';
 export default function Project() {
   const projects = [
     {
+      title: "OtteRx",
+      description: "OtteRx helps elderly users identify their prescriptions, open trusted pharmacy refill pages, and complete refill workflows with simple voice guidance, reminders, and an accessibility-first interface.",
+      tags: ["React", "Vite", "Tailwind CSS", "Figma", "MongoDB", "ElevenLabs API", "Gemini API"],
+      github: "https://github.com/nicolesutedja/DiamondHacks-2026",
+      demo: "https://diamondhacks2026.vercel.app/",
+      image: `url('${process.env.PUBLIC_URL}/otterx.png')`,  
+    },
+    {
+      title: "Triton Minecraft Website",
+      description: "A custom-built, community-driven hub for Triton Minecraft players to connect, explore, and stay updated on the latest server events",
+      tags: ["TypeScript", "CSS", "JavaScript"],
+      github: "https://github.com/TritonWebDev/triton-minecraft",
+      demo: "https://tritonmc.com/",
+      image: `url('${process.env.PUBLIC_URL}/tritonmc.png')`,  
+    },
+    {
+      title: "S.P.E.C.S. — Syllabus Policies Evaluation & Classification System",
+      description: "A Generative AI-powered research tool for auditing course syllabi against specifications grading criteria..",
+      tags: ["TypeScript", "CSS", "HTML"],
+      github: "https://github.com/nicolesutedja/SPECS/",
+      image: `url('${process.env.PUBLIC_URL}/specs.png')`,  
+    },
+
+    {
       title: "SDIA Website",
       description: "Comprehensive website for San Diego Indonesian Association managing event organization and alumni data for 140+ members with seamless user experience.",
-      tags: ["React", "TypeScript", "CSS", "SQL"],
+      tags: ["React", "TypeScript", "CSS", "JavaScript"],
       github: "https://github.com/PERMIAS-SDIA/sdia-website-v2",
       demo: "https://www.permiassdia.com/",
       image: `url('${process.env.PUBLIC_URL}/sdia.png')`,  
     },
     {
-      title: "Low-Price Center Marketplace",
-      description: "A student-centered marketplace platform for UCSD fostering affordability, sustainability, and campus community engagement. Built with React and SQL-backed Neon database.",
-      tags: ["React", "TypeScript", "SQL", "Neon", "JavaScript"],
+      title: "Low-Price Center Marketplace (In Progress)",
+      description: "A student-centered marketplace platform for UCSD fostering affordability, sustainability, and campus community engagement.",
+      tags: ["React", "TypeScript", "HTML", "JavaScript", "MongoDB"],
       github: "https://github.com/CSES-Open-Source/LowPriceCenter",
       demo: "https://low-price-center-kohl.vercel.app",
       image: `url('${process.env.PUBLIC_URL}/lpc.png')`,  
     },
-
   ];
 
   const cardVariants = {
@@ -87,10 +110,6 @@ export default function Project() {
                     backgroundRepeat: 'no-repeat',
                   }}
                 >
-                  {/* Replace with actual project image */}
-                  <div className="w-full h-full flex items-center justify-center text-slate-700 text-6xl font-bold opacity-20">
-                    {index + 1}
-                  </div>
                 </div>
 
                 {/* Project Details */}
@@ -127,7 +146,7 @@ export default function Project() {
                       <Github size={20} />
                       View Code
                     </a>
-                    {project.demo !== "#" && (
+                    {project.demo && (
                       <a 
                         href={project.demo}
                         target="_blank"
@@ -137,7 +156,7 @@ export default function Project() {
                         <ExternalLink size={20} />
                         Live Demo
                       </a>
-                    )}
+                    )}                  
                   </div>
                 </div>
               </div>
@@ -153,53 +172,6 @@ export default function Project() {
           viewport={{ once: true }}
           className="mt-32"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#b8c5d6' }}>
-            Other Notable Work.
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Research Poster",
-                description: "Specifications-based grading framework research under Prof. Mia Minnes",
-                year: "2025-2026"
-              },
-              {
-                title: "AI Integration Research",
-                description: "Published research on optimizing workflows with ChatGPT, Gemini, Claude, Grok, and Perplexity",
-                year: "2025"
-              },
-              {
-                title: "Workshop Series",
-                description: "6+ CSE workshops for K-12 students on Web Dev, AI, and Python",
-                year: "2025"
-              },
-              {
-                title: "Event Management Platform",
-                description: "Cross-university collaboration system for SDIA events",
-                year: "2025"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-xl bg-slate-700/40 border border-slate-600 hover:bg-slate-700/60 transition-colors"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold" style={{ color: '#c9aed4' }}>
-                    {item.title}
-                  </h3>
-                  <span className="text-sm text-slate-400 font-medium">{item.year}</span>
-                </div>
-                <p className="text-slate-300 font-medium">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
 
         {/* Call to Action */}
@@ -210,22 +182,6 @@ export default function Project() {
           viewport={{ once: true }}
           className="mt-32 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#b8c5d6' }}>
-            Want to collaborate?
-          </h2>
-          <p className="text-xl font-medium text-slate-300 mb-8 max-w-2xl mx-auto">
-            I'm always interested in working on new projects that make technology more accessible and impactful.
-          </p>
-          <a 
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-lg font-medium transition-all icon-glow"
-            style={{ 
-              backgroundColor: '#d4aec7ff',
-              color: '#77233fff'
-            }}
-          >
-            Contact me!
-          </a>
         </motion.div>
       </div>
     </section>

@@ -119,7 +119,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-20% 0px" }}
               >
                 <p className="text-xl font-medium text-slate-300 leading-relaxed mb-6">
-                  My name is Nicole Sutedja, and I am a second-year Computer Science student at UC San Diego with a 3.925 GPA. I'm passionate about AI research, web development, and creating accessible technology education.
+                  My name is Nicole Sutedja, and I am a second-year Computer Science student at UC San Diego with a 3.9 GPA. I'm passionate about AI research, web development, and creating accessible technology education.
                 </p>
               </motion.div>
 
@@ -151,15 +151,15 @@ export default function Home() {
                 {[
                   {
                     title: "Languages",
-                    content: "Python, Java, JavaScript, TypeScript, HTML, CSS, C"
+                    content: "Python, Java, JavaScript, TypeScript, HTML, CSS, C, C++"
                   },
                   {
                     title: "Frameworks & Tools",
-                    content: "React, SQL, Git, Neon, Microsoft Office, Canva"
+                    content: "React, SQL, Git, Figma, Notion, Microsoft Office, Canva"
                   },
                   {
                     title: "Skills",
-                    content: "Web Development, AI Integration, API Development, Database Management"
+                    content: "Web Development, AI Integration, UI/UX Design"
                   },
                   {
                     title: "Other",
