@@ -6,16 +6,24 @@ import FadeIn from '../components/FadeIn';
 // --- DATA ---
 const projects = [
   {
+    title: "TECHTonic",
+    description: "TECHTonic is an interactive, gamified educational platform designed to simulate earthquake propagation and teach effective emergency response and mitigation strategies using Scripps' Geophysics Data.",
+    tags: ["TypeScript", "CSS", "JavaScript", "Jupyter Notebook", "HTML", "Python", "Mapbox", "ElevenLabs API", "Gemini API"],
+    github: "https://github.com/nicolesutedja/datahacks-2026",
+    demo: "https://datahacks-2026.vercel.app/",
+    image: `url('${process.env.PUBLIC_URL}/techtonic.png')`,  
+  },
+  {
     title: "OtteRx",
     description: "OtteRx helps elderly users identify their prescriptions, open trusted pharmacy refill pages, and complete refill workflows with simple voice guidance, reminders, and an accessibility-first interface.",
-    tags: ["React", "Vite", "Tailwind CSS", "Figma", "MongoDB", "ElevenLabs API", "Gemini API"],
+    tags: ["React", "Vite", "Tailwind CSS", "MongoDB", "ElevenLabs API", "Gemini API"],
     github: "https://github.com/nicolesutedja/DiamondHacks-2026",
     demo: "https://diamondhacks2026.vercel.app/",
     image: `url('${process.env.PUBLIC_URL}/otterx.png')`,  
   },
   {
     title: "Triton Minecraft Website",
-    description: "A custom-built, community-driven hub for Triton Minecraft players to connect, explore, and stay updated on the latest server events",
+    description: "A custom-built, community-driven hub for Triton Minecraft players to connect, explore, and stay updated on the latest server events.",
     tags: ["TypeScript", "CSS", "JavaScript"],
     github: "https://github.com/TritonWebDev/triton-minecraft",
     demo: "https://tritonmc.com/",
@@ -23,7 +31,7 @@ const projects = [
   },
   {
     title: "S.P.E.C.S. — Syllabus Policies Evaluation & Classification System",
-    description: "A Generative AI-powered research tool for auditing course syllabi against specifications grading criteria..",
+    description: "A Generative AI-powered research tool for auditing course syllabi against specifications grading criteria.",
     tags: ["TypeScript", "CSS", "HTML"],
     github: "https://github.com/nicolesutedja/SPECS/",
     image: `url('${process.env.PUBLIC_URL}/specs.png')`,  
