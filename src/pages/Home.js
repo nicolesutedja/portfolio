@@ -99,13 +99,15 @@ export default function Home() {
             <div>
               <FadeIn x={-40} duration={0.7}>
                 <p className="text-xl font-medium text-slate-300 leading-relaxed mb-6">
-                  My name is Nicole Sutedja, and I am a second-year Computer Science student at UC San Diego with a 3.9 GPA. I'm passionate about AI research, web development, and creating accessible technology education.
+                  My name is Nicole Sutedja, and I am a second-year CS student at UC San Diego with a 3.9 GPA.
                 </p>
               </FadeIn>
 
               <FadeIn x={-40} duration={0.8}>
                 <p className="text-xl font-medium text-slate-300 leading-relaxed">
-                  I believe technology should empower communities and bridge gaps. Whether I'm integrating AI platforms, building student marketplaces, or leading workshops for underrepresented students, I'm driven by the goal of making tech more inclusive and impactful.
+                  Personally, I believe technology should empower communities and bridge gaps, thus I hope that I can contribute to making it more inclusive and impactful.
+                  <br></br>
+                  Outside of coding, you can find me playing tennis, playing video games and exploring new cafes in San Diego!
                 </p>
               </FadeIn>
             </div>
