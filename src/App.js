@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 export default function App() {
   return (
-    <Router basename="/portfolio">
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
