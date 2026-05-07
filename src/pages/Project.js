@@ -78,7 +78,7 @@ export default function Project() {
         {/* Projects Grid */}
         <div className="space-y-16">
           {projects.map((project, index) => (
-            // Staggered upward slide using y={40} and our delay trick!
+            // Staggered upward slide using y={40}
             <FadeIn key={index} y={40} duration={0.6} delay={index * 0.15}>
               <div className="group grid md:grid-cols-2 gap-8 items-center">
                 

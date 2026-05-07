@@ -4,11 +4,26 @@ import { motion } from 'framer-motion';
 export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(pointer: coarse)');
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener?.('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener?.('change', handleChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const moveCursor = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseLeave = () => setIsVisible(false);
@@ -23,7 +38,9 @@ export default function CustomCursor() {
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
     };
-  }, [isVisible]);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div

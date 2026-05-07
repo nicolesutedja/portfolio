@@ -53,7 +53,7 @@ export default function Home() {
 
             {/* Hero Content with Profile Picture inline */}
             <div className="flex items-center gap-6 mb-8">
-              <h1 className="text-7xl md:text-8xl font-bold leading-tight whitespace-nowrap" style={{ color: '#b8c5d6' }}>
+              <h1 className="text-5xl md:text-8xl font-bold leading-tight whitespace-nowrap" style={{ color: '#b8c5d6' }}>
                 <Typewriter
                   words={["Hi! I'm Nicole."]}
                   typeSpeed={80}
