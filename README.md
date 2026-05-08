@@ -2,4 +2,4 @@
 
 Hey! Thanks for checking me out. :)
 
-Check out my portfolio at [nicolesutedja.com](nicolesutedja.com)](https://nicolesutedja.com/)
+Check out my portfolio at [nicolesutedja.com](https://nicolesutedja.com/)
