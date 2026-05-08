@@ -41,12 +41,18 @@ export default function Layout({ children }) {
               Resume
             </a>
 
-            <div className="flex gap-4 ml-4">
-              <a href="mailto:nicolesutedja@gmail.com"><Mail size={18} /></a>
-              <a href="https://linkedin.com/in/nicolesutedja" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /></a>
-              <a href="https://github.com/nicolesutedja" target="_blank" rel="noopener noreferrer"><Github size={18} /></a>
-            </div>
-          </div>
+          <div className="flex gap-4 ml-4">
+            <a href="mailto:nicolesutedja@gmail.com" className="icon-glow">
+              <Mail size={18} />
+            </a>
+            <a href="https://linkedin.com/in/nicolesutedja" target="_blank" rel="noopener noreferrer" className="icon-glow">
+              <Linkedin size={18} />
+            </a>
+            <a href="https://github.com/nicolesutedja" target="_blank" rel="noopener noreferrer" className="icon-glow">
+              <Github size={18} />
+            </a>
+          </div>          
+        </div>
 
           {/* Mobile Hamburger */}
           <button
