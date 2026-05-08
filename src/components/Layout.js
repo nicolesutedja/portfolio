@@ -25,7 +25,7 @@ export default function Layout({ children }) {
       <CustomCursor />
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-slate-800/95 backdrop-blur-sm z-50 border-b border-slate-700">
+      <nav className="fixed top-0 w-full bg-slate-800/90 backdrop-blur-sm z-50 border-b border-slate-700">
         <div className="max-w-5xl mx-auto px-8 py-6 flex justify-between items-center">
           
           <Link to="/" className="text-xl font-semibold tracking-wide glow-text" style={{ color: '#ffd6d6ff' }}>
