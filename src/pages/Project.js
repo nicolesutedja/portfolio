@@ -6,9 +6,18 @@ import FadeIn from '../components/FadeIn';
 // --- DATA ---
 const projects = [
   {
+    title: "LoanLine",
+    description: "A game about algorithmic bias, AI-driven decision-making and positive feedback loops where you play as a loan officer. See how human biases are unknowingly amplified by AI to automate systemic discrimination.",
+    tags: ["CSS", "JavaScript", "HTML", "Python"],
+    github: "https://github.com/nicolesutedja/claude-hackathon-2026",
+    demo: "https://youtu.be/eNAN_5cDCp0?si=VYJf3wB4l8NbbGHE",
+    image: `url('${process.env.PUBLIC_URL}/loanline.png')`,  
+
+  },
+  {
     title: "TECHTonic",
     description: "TECHTonic is an interactive, gamified educational platform designed to simulate earthquake propagation and teach effective emergency response and mitigation strategies using Scripps' Geophysics Data.",
-    tags: ["TypeScript", "CSS", "JavaScript", "Jupyter Notebook", "HTML", "Python", "Mapbox", "ElevenLabs API", "Gemini API"],
+    tags: ["TypeScript", "CSS", "JavaScript", "HTML", "Python", "Mapbox", "ElevenLabs API", "Gemini API"],
     github: "https://github.com/nicolesutedja/datahacks-2026",
     demo: "https://datahacks-2026.vercel.app/",
     image: `url('${process.env.PUBLIC_URL}/techtonic.png')`,  
@@ -136,7 +145,7 @@ export default function Project() {
                         className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700/40 border border-slate-600 text-slate-300 font-medium hover:bg-slate-700 transition-colors"
                       >
                         <ExternalLink size={20} />
-                        Live Demo
+                        Demo
                       </a>
                     )}                  
                   </div>
